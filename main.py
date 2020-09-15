@@ -20,13 +20,15 @@ def calc () :
   sleep(1)
   selection ()
 
-def quiz ():
-  print("Okay, thanks for taking our quiz. We have a few questions. ") 
-  name = input("Enter your name. ")
-  age = input("Enter your age, now, please. ")
-  Subject = input("Okay, now your favourite subject. ")
-  print("Nice, thanks for that. So, if i was correct, your name is " + name + ", your age is " + age + ", and finally your favourite subject is " + Subject + "! I kinda like that subject too. Anyway, thanks for taking this quiz.")
-  sleep(1)
+def RPS () :
+  rpsoutcome = random.randint(1, 3)
+  if rpsoutcome == 1 :
+    print("Rock!")
+  elif rpsoutcome == 2 :
+    print("Paper!")
+  elif rpsoutcome == 3 :
+    print("Scissors!")
+  sleep(3)
   selection ()
 
 def vs () :
@@ -82,21 +84,29 @@ def timer () :
   selection ()
 
 def coinflip () :
-  gamblecoin = input("Please choose heads or tails and your bet amount. Please type it in the format H/T. I will not record your bet amount, so please don't type it. Thanks. ")
+  gamblecoin = input("Please choose heads or tails and your bet amount. Please type it in the format H/T.Uppercase or lowercase. I will not record your bet amount, so please don't type it. Thanks. ")
   outcomecoin = random.randint(1, 2)
   if outcomecoin == 1 :
     print("Heads!")
     if gamblecoin == "H" :
       print("Correct! You've won this bet.")
+    elif gamblecoin == "h" :
+      print("Correct! You have won this bet.")
     elif gamblecoin == "T" :
       print("Incorrect. You have lost this bet. Now go pay up.")
+    elif gamblecoin == "t" :
+      print ("Incorrect. You have lost this bet. Now go pay up.")
     else :
       print("Invalid option.")
   elif outcomecoin == 2 :
     print("Tails!")
     if gamblecoin == "T" :
       print("Correct! You've won this bet!")
+    elif gamblecoin == "t" :
+      print("Correct! You have won this bet!")
     elif gamblecoin == "H" :
+      print("Incorrect. You have lost this bet. Now go pay up.")
+    elif gamblecoin == "h" :
       print("Incorrect. You have lost this bet. Now go pay up.")
     else :
       print("Invalid option.")
@@ -123,7 +133,7 @@ def lessonwork () :
 def selection () :
   print("Press 1 for Calculator.")
   print("Press 2 for Trivia.")
-  print("Press 3 for Survey.")
+  print("Press 3 for Rock Paper Scissors.")
   print("Press 4 for Virus Scan.")
   print("Press 5 for Timer.")
   print("Press 6 for Lesson Work.")
@@ -135,7 +145,7 @@ def selection () :
   elif setting == "2" :
     trivia ()
   elif setting == "3" :
-    quiz ()
+    RPS ()
   elif setting == "4" :
     vs ()
   elif setting == "5" :
@@ -148,6 +158,5 @@ def selection () :
     bingo ()
   else :
     print("Error! Invalid option.")
-
 
 selection ()
