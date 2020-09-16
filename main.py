@@ -21,25 +21,69 @@ def calc () :
   selection ()
 
 def RPS () :
+  rpsinput = input("Enter your selection. Don't worry, I do not cheat. R/P/S. Use uppercase please. ")
   rpsoutcome = random.randint(1, 3)
+  print("Rock...")
+  sleep(1)
+  print("Paper...")
+  sleep (1)
+  print("Scissors...")
+  sleep(1)
   if rpsoutcome == 1 :
     print("Rock!")
+    sleep (1)
+    if rpsinput == "R" :
+      print("It's a tie!")
+    elif rpsinput == "P" :
+      print("Wow, you win :D")
+    elif rpsinput == "S" :
+      print("Ha! I win!")
+    else :
+      print("Invalid option!")
+      sleep(1)
+      RPS ()
   elif rpsoutcome == 2 :
     print("Paper!")
+    sleep(1)
+    if rpsinput == "R" :
+      print("Ha! I win!")
+    elif rpsinput == "P" :
+      print("It's a tie!")
+    elif rpsinput == "S" :
+      print("Wow, you win :D")
+    else :
+      print("Invalid option.")
+      sleep(1)
+      RPS ()
   elif rpsoutcome == 3 :
     print("Scissors!")
+    if rpsinput == "R" :    
+      print("Wow, you beat me :D")
+    elif rpsinput == "P" :
+      print("Ha! I win!")
+    elif rpsinput == "S" :    
+      print("It's a tie!")
+    else :
+      print("Invalid option!")
+      sleep(1)
+      RPS ()
   sleep(3)
-  selection ()
+  playagain = input("Play again? Y/N ")
+  if playagain == "Y" :
+    RPS()
+  elif playagain == "N" :
+    selection ()
 
 def vs () :
-  print("Okay, please standby while I scan your device for a virus. This should take no longer than  20 seconds.")
+  print("Okay, please standby while I scan your device for a virus. This should take no longer than 2 minutes.")
   vslength = random.randint(10, 120)
   sleep(vslength)
   print("We have found no viruses on your computer. Happy internet browsing!")
   sleep(1)
   selection ()
+
 def trivia ():
-  print("Hello! I am Trivia. I am going to quiz you on your general         knowledge! Please only use lowercase, as I am case sensitive. ")
+  print("Hello! I am Trivia. I am going to quiz you on your general knowledge! Please only use lowercase, as I am case sensitive. ")
   sleep(2)
   quest1 = input("What is the capital of Japan? ")
   if quest1 == "tokyo" :
@@ -54,7 +98,7 @@ def trivia ():
   else :
     print("Incorrect. It was 169. Let's continue.")
   quest3 = input("What is the function used in python to show text on the screen? ")
-  if quest3 == "print     " :
+  if quest3 == "print" :
     print("Correct. 1 more to go!")
   else :
     print("That's wrong. It was 'print'")
@@ -84,32 +128,33 @@ def timer () :
   selection ()
 
 def coinflip () :
-  gamblecoin = input("Please choose heads or tails and your bet amount. Please type it in the format H/T.Uppercase or lowercase. I will not record your bet amount, so please don't type it. Thanks. ")
+  gamblecoin = input("Please choose heads or tails. Please type it in the format H/T.Uppercase or lowercase. ")
   outcomecoin = random.randint(1, 2)
   if outcomecoin == 1 :
     print("Heads!")
     if gamblecoin == "H" :
-      print("Correct! You've won this bet.")
+      print("Correct! You've won.")
     elif gamblecoin == "h" :
-      print("Correct! You have won this bet.")
+      print("Correct! You have won.")
     elif gamblecoin == "T" :
-      print("Incorrect. You have lost this bet. Now go pay up.")
+      print("Incorrect. You have lost.")
     elif gamblecoin == "t" :
-      print ("Incorrect. You have lost this bet. Now go pay up.")
+      print ("Incorrect. You have lost.")
     else :
       print("Invalid option.")
   elif outcomecoin == 2 :
     print("Tails!")
     if gamblecoin == "T" :
-      print("Correct! You've won this bet!")
+      print("Correct! You've won!")
     elif gamblecoin == "t" :
-      print("Correct! You have won this bet!")
+      print("Correct! You have won!")
     elif gamblecoin == "H" :
-      print("Incorrect. You have lost this bet. Now go pay up.")
+      print("Incorrect. You have lost.")
     elif gamblecoin == "h" :
-      print("Incorrect. You have lost this bet. Now go pay up.")
+      print("Incorrect. You have lost.")
     else :
       print("Invalid option.")
+  sleep(1)
   selection ()
 
 def bingo () :
@@ -125,6 +170,76 @@ def bingo () :
   elif bingoanswer == "N" :
     bingo ()
 
+def rng () :
+  print("Please choose the highest and lowest values you'd like.")
+  lowestvalue = float(input("Lowest number: "))
+  sleep (0.5)
+  highestvalue = float(input("Highest number: "))
+  print()
+  print("Thanks, printing your numbers...")
+  sleep (2)
+  rngoutput = random.randint(lowestvalue, highestvalue)
+  print(rngoutput)
+  sleep(2)
+  selection ()
+
+def madlibs () :
+
+  madlibsstory = float(input("What story would you like? 1/2. "))
+  if madlibsstory == 1 :
+    print("Okay, generating story...")
+    sleep(3)
+    noun1 = input("Give me a noun. ")
+    place1 = input("Give me a place. ")
+    emotion1 = input("Give me an emotion. ")
+    verb1 = input("Give me a verb. ")
+    noun2 = input("Give me another noun. ")
+    adjective1 = input("Give me an adjective. ")
+    noun3 = input("Give me a third noun. ")
+    noun4 = input("Give me a fourth noun. ")
+    noun5 = input("Give me a final noun. ")
+    verb2 = input("Give me a verb. ")
+    name1 = input("Give me a name. ")
+    print("Thanks. Generating your story...")
+    sleep (5)
+    print()
+    print(f"One day there was a {noun1} who lived in {place1}. This {noun1} was very {emotion1} and he was so {emotion1} he decided to {verb1} in a {noun2}. What a {adjective1} thing to do! Later that day, he died due to a {noun3}, {noun4} and a {noun5} which all {verb2}ed him.")
+    print(f"-{name1}")
+    madlibsrestart = input("Go again? Y/N")
+    if madlibsrestart == "Y" :
+      madlibs() 
+    elif madlibsrestart == "N" :
+      selection() 
+    else :
+      print("Invalid option! Redirecting to selection...")
+      selection() 
+
+  elif madlibsstory == 2 :
+    print("Okay, generating story...")
+    sleep(3)
+    adjective1 = input("Give me an adjective. ")
+    noun1 = input("Give me a noun. ")
+    adjective2 = input("Give me an adjective. ")
+    noun2 = input("Give me a noun.")
+    verb1 = input("Give me a verb. ")
+    noun3 = input("Give me a noun. ")
+    verb2 = input("Give me a verb. ")
+    noun4 = input("Give me a noun. ")
+    noun5 = input("Give me a noun. ")
+    adjective3 = input*("Give me an adjective. ")
+    verb3 = input("Give me a verb. ")
+    noun6 = input("Finally, give me a noun.")
+    print("Thanks, generating story...")
+    sleep(5)
+    print("Dear Diary,")
+    print(f"Today was {adjective1}! This morning, I ate some {noun1} and it was {adjective2}. Then, I went to school in a {noun2}. At school, I {verb1}ed at the {noun3}, and then I {verb2}ed at the {noun4}. When I came home, my parents gave me a present! Inside was a {noun5} and it was so {adjective3}. Then, I {verb3}ed with James and then I went to sleep in my {noun6}.")
+    if madlibsrestart == "Y" :
+      madlibs() 
+    elif madlibsrestart == "N" :
+      selection() 
+    else :
+      print("Invalid option! Redirecting to selection...")
+      selection() 
 
 def lessonwork () :
   print("Nothing here so far!")
@@ -139,6 +254,8 @@ def selection () :
   print("Press 6 for Lesson Work.")
   print("Press 7 for Coin Flip.")
   print("Press 8 for Bingo.")
+  print("Press 9 for Random Number Generator.")
+  print("Press 10 for Mad Libs")
   setting = input("Please select an option. ")
   if setting == "1" :
     calc ()
@@ -156,6 +273,10 @@ def selection () :
     coinflip ()
   elif setting == "8" :
     bingo ()
+  elif setting == "9" :
+    rng ()
+  elif setting == "10" :
+    madlibs ()
   else :
     print("Error! Invalid option.")
 
